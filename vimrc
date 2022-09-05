@@ -14,15 +14,11 @@ set autowrite     " automatically :write before running commands
 set modelines=0   " disable modelines as a security precaution
 set nomodeline
 
-" softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
+" softtabs, 4 spaces
+set tabstop=4
+set shiftwidth=4
 set shiftround
 set expandtab
-
-" make it obvious where 160 characters is
-set textwidth=160
-set colorcolumn=+1
 
 " numbers
 set number
@@ -38,5 +34,11 @@ set cinkeys-=0#
 
 syntax on
 
+" enable filetype detection by plugins? (fixed vim-go)
+filetype plugin indent on
+
 " add correct tabs to makefiles
 autocmd Filetype make setlocal noexpandtab
+
+" auto-complete html tags
+autocmd Filetype html,vue set omnifunc=htmlcomplete#CompleteTags
